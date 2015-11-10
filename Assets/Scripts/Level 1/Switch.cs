@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Switch : MonoBehaviour {
+public class Switch : MonoBehaviour 
+{
+    bool _triggered = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnTriggerStay(Collider col)
+    {
+        if (!_triggered && Input.GetButton("Action"))
+        {
+            _triggered = true;
+            GameObject.FindObjectOfType<FinalLevelDoor>().unlockDoor();
+        }
+    }
 }
