@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class SpawnWithSpecificVision : MonoBehaviour
+public abstract class OnVisionChangedBaseBehaviour : MonoBehaviour
 {
     void OnEnable()
     {

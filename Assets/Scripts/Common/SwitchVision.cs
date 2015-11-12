@@ -15,20 +15,14 @@ public class SwitchVision : MonoBehaviour
         set
         {
             _vt = value;
+            
             if (visionTypeHasChanged != null)
             {
                 visionTypeHasChanged(value);
             }
 
-            GameObject.FindObjectOfType<UI_Main>().changeVision(value);
-
             Debug.Log("currentVision : " + _vt.CurrentVision.ToString());
         }
-    }
-
-    void Awake()
-    {
-
     }
 
     void Start()
@@ -71,21 +65,21 @@ public class VisionType
         _currentVision = e_VisionType.DEFAULT;
     }
 
-    public static bool operator==(VisionType v1, VisionType v2)
-    {
-        if (v1 == null || v1 == null)
-            return false;
+    //public static bool operator==(VisionType v1, VisionType v2)
+    //{
+    //    if (v1 == null || v1 == null)
+    //        return false;
 
-        if (System.Object.ReferenceEquals(v1, v2))
-            return true;
+    //    if (System.Object.ReferenceEquals(v1, v2))
+    //        return true;
 
-        return v1._currentVision == v2._currentVision;
-    }
+    //    return v1._currentVision == v2._currentVision;
+    //}
 
-    public static bool operator !=(VisionType v1, VisionType v2)
-    {
-        return !(v1 == v2);
-    }
+    //public static bool operator !=(VisionType v1, VisionType v2)
+    //{
+    //    return !(v1 == v2);
+    //}
 
     public static VisionType operator++(VisionType v)
     {

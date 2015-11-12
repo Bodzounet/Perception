@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestVision : SpawnWithSpecificVision
+public class TestVision : OnVisionChangedBaseBehaviour
 {
     Renderer rd;
+
+    public VisionType.e_VisionType colorToSpawn;
 
     void Awake()
     {
@@ -13,7 +15,7 @@ public class TestVision : SpawnWithSpecificVision
 
     public override void OnVisionHasChanged(VisionType vt)
     {
-        if (vt.CurrentVision == VisionType.e_VisionType.RED)
+        if (vt.CurrentVision == colorToSpawn)
             rd.enabled = true;
         else
             rd.enabled = false;
