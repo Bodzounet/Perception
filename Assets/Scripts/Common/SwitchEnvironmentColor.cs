@@ -8,10 +8,12 @@ public class SwitchEnvironmentColor : OnVisionChangedBaseBehaviour
 
     private Material _mat;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _mat = GetComponent<Renderer>().material;
-        colors.Add(new Color32(230, 230, 230, 255));
+        colors.Add(new Color32(200, 200, 200, 255));
         //colors.Add(Color.white);
     }
 

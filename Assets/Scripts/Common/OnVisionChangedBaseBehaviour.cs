@@ -3,16 +3,24 @@ using System.Collections;
 
 public abstract class OnVisionChangedBaseBehaviour : MonoBehaviour
 {
+    protected VisionManager vm;
+
+    virtual protected void Awake()
+    {
+        vm = GameObject.FindObjectOfType<VisionManager>();
+    }
+
     void OnEnable()
     {
-        GameObject.FindObjectOfType<SwitchVision>().visionTypeHasChanged += OnVisionHasChanged;
+        vm.visionTypeHasChanged += OnVisionHasChanged;
+        OnVisionHasChanged(vm.CurrentVisionType);
     }
 
     void OnDisable()
     {
         try
         {
-            GameObject.FindObjectOfType<SwitchVision>().visionTypeHasChanged -= OnVisionHasChanged;
+            GameObject.FindObjectOfType<VisionManager>().visionTypeHasChanged -= OnVisionHasChanged;
         }
         catch
         {
