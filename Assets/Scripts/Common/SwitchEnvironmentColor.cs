@@ -4,15 +4,18 @@ using System.Collections.Generic;
 
 public class SwitchEnvironmentColor : OnVisionChangedBaseBehaviour
 {
-    public List<Color> colors = new List<Color> { new Color32(255, 165, 165, 255), new Color32(165, 255, 165, 255), new Color32(165, 165, 255, 255) }; // red, green, blue, in this order.
+    List<Color> colors; // red, green, blue, white, in this order.
 
     private Material _mat;
 
     void Awake()
     {
         _mat = GetComponent<Renderer>().material;
-        colors.Add(new Color32(230, 230, 230, 255));
-        //colors.Add(Color.white);
+        colors = new List<Color>();
+        colors.Add(new Color(1, 0.66f, 0.66f, _mat.color.a));
+        colors.Add(new Color(0.66f, 1, 0.66f, _mat.color.a));
+        colors.Add(new Color(0.66f, 0.66f, 1, _mat.color.a));
+        colors.Add(new Color(0.9f, 0.9f, 0.9f, _mat.color.a));
     }
 
     public override void OnVisionHasChanged(VisionType vt)

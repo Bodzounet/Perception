@@ -87,7 +87,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void PlayLandingSound()
         {
             m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
+            //m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
         }
 
@@ -154,7 +154,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
-            PlayFootStepAudio();
+            //PlayFootStepAudio();
         }
 
 
