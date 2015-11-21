@@ -3,42 +3,46 @@ using System.Collections;
 
 public class AdditionnalVisions : MonoBehaviour 
 {
-    VisionType.e_VisionType[] additionnalVisions = new VisionType.e_VisionType[2] {VisionType.e_VisionType.DEFAULT, VisionType.e_VisionType.DEFAULT};
-   
-    public enum e_add
+    public delegate void Void_D_AdditionalVision(e_AdditionnalVision av);
+    public event Void_D_AdditionalVision additionnialVisionsHasChanged;
+
+    public enum e_AdditionnalVision
     {
-        NONE = 0,
-        RED,
-        BLUE,
+        NONE = -1,
+        RED = 0,
+        BLUE = 2,
         BOTH
     }
 
-    public VisionType.e_VisionType Red
+    private e_AdditionnalVision _av = e_AdditionnalVision.NONE;
+
+    public void addVision(e_AdditionnalVision av)
+    {
+        if (av != e_AdditionnalVision.BLUE && av != e_AdditionnalVision.RED)
+            throw new System.Exception("must add red or blue, nothing else");
+
+        if (av == e_AdditionnalVision.BOTH || _av == av)
+            return;
+
+        CurrentAdditionalVisions = (CurrentAdditionalVisions == e_AdditionnalVision.NONE) ? av : e_AdditionnalVision.BOTH;
+    }
+
+    public void resetVisions()
+    {
+        CurrentAdditionalVisions = e_AdditionnalVision.NONE;
+    }
+
+    public e_AdditionnalVision CurrentAdditionalVisions
     {
         get
         {
-            return additionnalVisions[0];
+            return _av;
         }
-    }
-
-    public VisionType.e_VisionType Blue
-    {
-        get
+        private set
         {
-            return additionnalVisions[1];
-        }
-    }
-
-    public void addVision(VisionType.e_VisionType v)
-    {
-
-    }
-
-    public e_add CurrentAdditionalVisions
-    {
-        get
-        {
-            return (e_add)(additionnalVisions[0] == VisionType.e_VisionType.DEFAULT ? 0 : 1 + additionnalVisions[1] == VisionType.e_VisionType.DEFAULT ? 0 : 2);
+            _av = value;
+            if (additionnialVisionsHasChanged != null)
+                additionnialVisionsHasChanged(value);
         }
     }
 }

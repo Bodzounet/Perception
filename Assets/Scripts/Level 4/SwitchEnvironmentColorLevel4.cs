@@ -25,12 +25,12 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
             case VisionType.e_VisionType.RED:
                 switch (av.CurrentAdditionalVisions)
                 {
-                    case AdditionnalVisions.e_add.RED:
-                    case AdditionnalVisions.e_add.NONE:
+                    case AdditionnalVisions.e_AdditionnalVision.RED:
+                    case AdditionnalVisions.e_AdditionnalVision.NONE:
                         idx = 0;
                         break;
-                    case AdditionnalVisions.e_add.BLUE:
-                    case AdditionnalVisions.e_add.BOTH:
+                    case AdditionnalVisions.e_AdditionnalVision.BLUE:
+                    case AdditionnalVisions.e_AdditionnalVision.BOTH:
                         idx = 4;
                         break;
                 }
@@ -38,16 +38,16 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
             case VisionType.e_VisionType.GREEN:
                 switch (av.CurrentAdditionalVisions)
                 {
-                    case AdditionnalVisions.e_add.RED:
+                    case AdditionnalVisions.e_AdditionnalVision.RED:
                         idx = 6;
                         break;
-                    case AdditionnalVisions.e_add.NONE:
+                    case AdditionnalVisions.e_AdditionnalVision.NONE:
                         idx = 1;
                         break;
-                    case AdditionnalVisions.e_add.BLUE:
+                    case AdditionnalVisions.e_AdditionnalVision.BLUE:
                         idx = 5;
                         break;
-                    case AdditionnalVisions.e_add.BOTH:
+                    case AdditionnalVisions.e_AdditionnalVision.BOTH:
                         idx = 7;
                         break;
                 }
@@ -55,12 +55,12 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
             case VisionType.e_VisionType.BLUE:
                 switch (av.CurrentAdditionalVisions)
                 {
-                    case AdditionnalVisions.e_add.RED:
-                    case AdditionnalVisions.e_add.BOTH:
+                    case AdditionnalVisions.e_AdditionnalVision.RED:
+                    case AdditionnalVisions.e_AdditionnalVision.BOTH:
                         idx = 4;
                         break;
-                    case AdditionnalVisions.e_add.NONE:
-                    case AdditionnalVisions.e_add.BLUE:
+                    case AdditionnalVisions.e_AdditionnalVision.NONE:
+                    case AdditionnalVisions.e_AdditionnalVision.BLUE:
                         idx = 2;
                         break;
                 }
@@ -68,23 +68,43 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
             case VisionType.e_VisionType.DEFAULT:
                 switch (av.CurrentAdditionalVisions)
                 {
-                    case AdditionnalVisions.e_add.RED:
+                    case AdditionnalVisions.e_AdditionnalVision.RED:
                         idx = 0;
                         break;
-                    case AdditionnalVisions.e_add.BOTH:
+                    case AdditionnalVisions.e_AdditionnalVision.BOTH:
                         idx = 4;
                         break;
-                    case AdditionnalVisions.e_add.NONE:
+                    case AdditionnalVisions.e_AdditionnalVision.NONE:
                         idx = 3;
                         break;
-                    case AdditionnalVisions.e_add.BLUE:
+                    case AdditionnalVisions.e_AdditionnalVision.BLUE:
                         idx = 2;
                         break;
                 }
                 break;
         }
 
+        Debug.Log("idx : " + idx);
         StopAllCoroutines();
         StartCoroutine("ChangeColor", _colors[idx]);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            av.addVision(AdditionnalVisions.e_AdditionnalVision.RED);
+            OnVisionHasChanged(vm.CurrentVisionType);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            av.addVision(AdditionnalVisions.e_AdditionnalVision.BLUE);
+            OnVisionHasChanged(vm.CurrentVisionType);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            av.resetVisions();
+            OnVisionHasChanged(vm.CurrentVisionType);
+        }
     }
 }

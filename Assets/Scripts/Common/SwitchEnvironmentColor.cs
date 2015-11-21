@@ -7,8 +7,10 @@ public class SwitchEnvironmentColor : OnVisionChangedBaseBehaviour
     protected List<Color> _colors; // red, green, blue, white, in this order.
     protected Material _mat;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _mat = GetComponent<Renderer>().material;
         _colors = new List<Color>();
         _colors.Add(new Color(1, 0.66f, 0.66f, _mat.color.a));
