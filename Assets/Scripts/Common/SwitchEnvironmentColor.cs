@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class SwitchEnvironmentColor : OnVisionChangedBaseBehaviour
 {
-    List<Color> colors; // red, green, blue, white, in this order.
+    protected List<Color> colors; // red, green, blue, white, in this order.
 
     private Material _mat;
 
     void Awake()
     {
+        base.Awake();
+
         _mat = GetComponent<Renderer>().material;
         colors = new List<Color>();
         colors.Add(new Color(1, 0.66f, 0.66f, _mat.color.a));

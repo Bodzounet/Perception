@@ -12,7 +12,7 @@ public class SwitchCamera : MonoBehaviour
     Transform tr;
     Transform playerTr;
     MeshRenderer meshRenderer;
-    SwitchVision vision;
+    VisionManager vision;
     Dictionary<VisionType.e_VisionType, List<Material>> cameras;
 
     void Start()
@@ -20,7 +20,7 @@ public class SwitchCamera : MonoBehaviour
         tr = this.GetComponent<Transform>();
         meshRenderer = this.GetComponent<MeshRenderer>();
         playerTr = GameObject.Find("Player").GetComponent<Transform>();
-        vision = GameObject.Find("Player").GetComponent<SwitchVision>();
+        vision = GameObject.Find("Player").GetComponent<VisionManager>();
         cameras = new Dictionary<VisionType.e_VisionType, List<Material>>();
         cameras[VisionType.e_VisionType.RED] = redVisionCameras;
         cameras[VisionType.e_VisionType.GREEN] = greenVisionCameras;
