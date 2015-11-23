@@ -18,8 +18,8 @@ public class OnVisionChangedPopDepop : OnVisionChangedBaseBehaviour
 
     public float timeAnim = 0.5f;
 
-    Collider[] _cols;
-    Renderer[] _rds;
+    protected Collider[] _cols;
+    protected Renderer[] _rds;
 
     Transform[] _childs;
 
