@@ -177,8 +177,6 @@ GameObject:
   - 65: {fileID: 6566206}
   - 23: {fileID: 2391230}
   - 114: {fileID: 11404698}
-  - 114: {fileID: 11472210}
-  - 114: {fileID: 11479140}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: prefab
@@ -815,28 +813,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 473b6767d78960747bc3363acf90931a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11472210
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5856f0596d72c584c92bc2b16c6aa999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11479140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5856f0596d72c584c92bc2b16c6aa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11491368

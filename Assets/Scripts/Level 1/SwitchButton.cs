@@ -13,7 +13,7 @@ public class SwitchButton : MonoBehaviour
 
     public void unlock()
     {
-        GameObject.FindObjectOfType<ProgressionManagerLevel4>().unlockDoor();
+        GameObject.FindObjectOfType<ProgressionManager>().unlockDoor();
     }
 
     void OnTriggerStay(Collider col)
