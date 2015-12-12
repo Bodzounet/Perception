@@ -50,7 +50,7 @@ public class ProgressionManager : MonoBehaviour
             go.SetActive(false);
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering -= resetTriggersAfterFall;
         Player.position = Spawn.position;
-        Sas.SendMessage("ChangeSasState", 1);
+        Sas.SendMessage("changeSasState", 1);
     }
 
     public void unlockDoor()
