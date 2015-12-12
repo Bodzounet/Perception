@@ -1118,7 +1118,9 @@ Prefab:
       propertyPath: initialState
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11472210, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
+    - {fileID: 11479140, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1022627916
@@ -1361,7 +1363,9 @@ Prefab:
       propertyPath: initialState
       value: -1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11472210, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
+    - {fileID: 11479140, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1087881883
