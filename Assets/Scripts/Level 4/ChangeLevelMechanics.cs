@@ -24,6 +24,8 @@ public class ChangeLevelMechanics : MonoBehaviour
 
         foreach (var v in Resources.FindObjectsOfTypeAll<SwitchEnvironmentColor>())
         {
+            if (v.tag == "prefab")
+                continue;
             v.gameObject.AddComponent<ModifyVisionColor>();
         }
 
