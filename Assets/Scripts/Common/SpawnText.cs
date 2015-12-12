@@ -46,10 +46,9 @@ public class SpawnText : MonoBehaviour
                 }
 
                 text.text = msg;
+                yield return new WaitForSeconds(3);
+                text.text = "";
             }
-
-            yield return new WaitForSeconds(3);
-            text.text = "";
         }
     }
 }

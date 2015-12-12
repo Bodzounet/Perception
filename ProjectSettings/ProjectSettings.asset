@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: New Unity Project
+  productName: perception
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -92,7 +92,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 1
-  productGUID: df4d13c13f3b15246b1ff3729ce20665
+  productGUID: 27932a78c9eaca14faa8225bef2cddc9
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
@@ -320,7 +320,7 @@ PlayerSettings:
     16: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     17: MOBILE_INPUT
     20: MOBILE_INPUT
-  metroPackageName: New Unity Project
+  metroPackageName: perception
   metroPackageLogo: 
   metroPackageLogo140: 
   metroPackageLogo180: 
@@ -331,7 +331,7 @@ PlayerSettings:
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: New Unity Project
+  metroApplicationDescription: perception
   metroStoreTileLogo80: 
   metroStoreTileLogo: 
   metroStoreTileLogo140: 

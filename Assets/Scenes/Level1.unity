@@ -983,6 +983,10 @@ Prefab:
       propertyPath: HmdRotatesY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 191222, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_IsPrefabParent: 0
@@ -1364,6 +1368,10 @@ Prefab:
     - target: {fileID: 11415442, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
       propertyPath: initialState
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491676, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
+      propertyPath: levelToLoadName
+      value: Level2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11472210, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
