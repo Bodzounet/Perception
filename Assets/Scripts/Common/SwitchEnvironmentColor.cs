@@ -4,26 +4,25 @@ using System.Collections.Generic;
 
 public class SwitchEnvironmentColor : OnVisionChangedBaseBehaviour
 {
-    protected List<Color> colors; // red, green, blue, white, in this order.
+    protected List<Color> _colors; // red, green, blue, white, in this order.
+    protected Material _mat;
 
-    private Material _mat;
-
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
         _mat = GetComponent<Renderer>().material;
-        colors = new List<Color>();
-        colors.Add(new Color(1, 0.66f, 0.66f, _mat.color.a));
-        colors.Add(new Color(0.66f, 1, 0.66f, _mat.color.a));
-        colors.Add(new Color(0.66f, 0.66f, 1, _mat.color.a));
-        colors.Add(new Color(0.9f, 0.9f, 0.9f, _mat.color.a));
+        _colors = new List<Color>();
+        _colors.Add(new Color(1, 0.66f, 0.66f, _mat.color.a));
+        _colors.Add(new Color(0.66f, 1, 0.66f, _mat.color.a));
+        _colors.Add(new Color(0.66f, 0.66f, 1, _mat.color.a));
+        _colors.Add(new Color(0.9f, 0.9f, 0.9f, _mat.color.a));
     }
 
     public override void OnVisionHasChanged(VisionType vt)
     {
         StopAllCoroutines();
-        StartCoroutine("ChangeColor", colors[(int)vt.CurrentVision]);
+        StartCoroutine("ChangeColor", _colors[(int)vt.CurrentVision]);
     }
 
     IEnumerator ChangeColor(Color end)

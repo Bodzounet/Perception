@@ -10,13 +10,13 @@ public abstract class OnVisionChangedBaseBehaviour : MonoBehaviour
         vm = GameObject.FindObjectOfType<VisionManager>();
     }
 
-    void OnEnable()
+    virtual protected void OnEnable()
     {
         vm.visionTypeHasChanged += OnVisionHasChanged;
         OnVisionHasChanged(vm.CurrentVisionType);
     }
 
-    void OnDisable()
+    virtual protected void OnDisable()
     {
         try
         {
