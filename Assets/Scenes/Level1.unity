@@ -1365,6 +1365,10 @@ Prefab:
       propertyPath: initialState
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 11491676, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
+      propertyPath: levelToLoadName
+      value: Level2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11472210, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
     - {fileID: 11479140, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
