@@ -7,7 +7,7 @@ public class ChangeLevel : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" && levelToLoadName != "")
         {
             KeepRotationBetweenLevels.Instance.q = GameObject.Find("Player").transform.rotation;
             Application.LoadLevel(levelToLoadName);

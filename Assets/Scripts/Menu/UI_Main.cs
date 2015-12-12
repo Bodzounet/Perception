@@ -8,7 +8,7 @@ public class UI_Main : MonoBehaviour
 
     public void StartAventure()
     {
-        Application.LoadLevel("Level1");
+        Application.LoadLevel("Intro");
     }
 
     public void OpenClosePanelChooseLevel(bool state)
