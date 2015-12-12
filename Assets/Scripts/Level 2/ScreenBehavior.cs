@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using SynchronizerData;
 
 public class ScreenBehavior : MonoBehaviour
 {
@@ -8,13 +7,11 @@ public class ScreenBehavior : MonoBehaviour
     public Material look;
     public float bpm = 120.0f;
 
-    private BeatObserver beatObserver;
     private bool isEnabled;
     private float elapsedTime;
 
     void Start()
     {
-        beatObserver = GetComponent<BeatObserver>();
         isEnabled = false;
         elapsedTime = 0.0f;
     }
