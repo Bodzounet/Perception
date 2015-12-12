@@ -3,21 +3,39 @@ using System.Collections;
 
 public class ChangeOcclusionZoneSize : MonoBehaviour
 {
-    public float incr = 0.01f;
-
-    Vector3 v = new Vector3(1, 0, 1);
     Vector3 initial;
+    Vector3 mini;
+
+    OVRPlayerController ctrl;
 
     void Start()
     {
+        ctrl = GameObject.FindObjectOfType<OVRPlayerController>();
+
         initial = transform.localScale;
+        mini = new Vector3(initial.x / 33, initial.y, initial.z / 33);
     }
 
     void FixedUpdate() // and not Update
     {
-        transform.localScale += v * incr;
+        if (ctrl.CheckShakingHead())
+        {
+            StopAllCoroutines();
+            StartCoroutine(resize());
+        }
+    }
 
-        // if (Shakehead)
-        //     transform.localScale = initial;
+    IEnumerator resize()
+    {
+        while (transform.localScale != mini)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, mini, 0.1f);
+            yield return new WaitForEndOfFrame();
+        }
+        while (transform.localScale != initial)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, initial, 0.005f);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
