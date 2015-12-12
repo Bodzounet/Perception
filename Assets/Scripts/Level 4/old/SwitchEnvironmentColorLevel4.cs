@@ -8,10 +8,10 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
     protected override void Awake()
     {
         base.Awake();
-        _colors.Add(new Color(1, 0.66f, 1f, _mat.color.a));
-        _colors.Add(new Color(0.66f, 1f, 1f, _mat.color.a));
-        _colors.Add(new Color(1, 1f, 0.66f, _mat.color.a));
-        _colors.Add(new Color(1f, 1f, 1f, _mat.color.a));
+        Colors.Add(new Color(1, 0.66f, 1f, Mat.color.a));
+        Colors.Add(new Color(0.66f, 1f, 1f, Mat.color.a));
+        Colors.Add(new Color(1, 1f, 0.66f, Mat.color.a));
+        Colors.Add(new Color(1f, 1f, 1f, Mat.color.a));
 
         av = GameObject.FindObjectOfType<AdditionnalVisions>();
     }
@@ -86,7 +86,7 @@ public class SwitchEnvironmentColorLevel4 : SwitchEnvironmentColor
 
         Debug.Log("idx : " + idx);
         StopAllCoroutines();
-        StartCoroutine("ChangeColor", _colors[idx]);
+        StartCoroutine("ChangeColor", Colors[idx]);
     }
 
     void Update()
