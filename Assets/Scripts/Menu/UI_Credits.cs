@@ -14,7 +14,7 @@ public class UI_Credits : MonoBehaviour
     {
         foreach (Transform t in children)
         {
-            if (t != transform)
+            if (t != transform && t.name != "Return")
             {
                 t.SendMessage("Print");
             }

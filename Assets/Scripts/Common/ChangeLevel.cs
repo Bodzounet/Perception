@@ -9,6 +9,7 @@ public class ChangeLevel : MonoBehaviour
     {
         if (col.tag == "Player")
         {
+            KeepRotationBetweenLevels.Instance.q = GameObject.Find("Player").transform.rotation;
             Application.LoadLevel(levelToLoadName);
         }
     }
