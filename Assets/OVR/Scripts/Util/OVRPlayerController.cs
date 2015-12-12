@@ -28,123 +28,124 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CharacterController))]
 public class OVRPlayerController : MonoBehaviour
 {
-	/// <summary>
-	/// The rate acceleration during movement.
-	/// </summary>
-	public float Acceleration = 0.1f;
+    /// <summary>
+    /// The rate acceleration during movement.
+    /// </summary>
+    public float Acceleration = 0.1f;
 
-	/// <summary>
-	/// The rate of damping on movement.
-	/// </summary>
-	public float Damping = 0.3f;
+    /// <summary>
+    /// The rate of damping on movement.
+    /// </summary>
+    public float Damping = 0.3f;
 
-	/// <summary>
-	/// The rate of additional damping when moving sideways or backwards.
-	/// </summary>
-	public float BackAndSideDampen = 0.5f;
+    /// <summary>
+    /// The rate of additional damping when moving sideways or backwards.
+    /// </summary>
+    public float BackAndSideDampen = 0.5f;
 
-	/// <summary>
-	/// The force applied to the character when jumping.
-	/// </summary>
-	public float JumpForce = 0.3f;
+    /// <summary>
+    /// The force applied to the character when jumping.
+    /// </summary>
+    public float JumpForce = 0.3f;
 
-	/// <summary>
-	/// The rate of rotation when using a gamepad.
-	/// </summary>
-	public float RotationAmount = 1.5f;
+    /// <summary>
+    /// The rate of rotation when using a gamepad.
+    /// </summary>
+    public float RotationAmount = 1.5f;
 
-	/// <summary>
-	/// The rate of rotation when using the keyboard.
-	/// </summary>
-	public float RotationRatchet = 0.0f;
+    /// <summary>
+    /// The rate of rotation when using the keyboard.
+    /// </summary>
+    public float RotationRatchet = 0.0f;
 
-	/// <summary>
-	/// If true, reset the initial yaw of the player controller when the Hmd pose is recentered.
-	/// </summary>
-	public bool HmdResetsY = true;
+    /// <summary>
+    /// If true, reset the initial yaw of the player controller when the Hmd pose is recentered.
+    /// </summary>
+    public bool HmdResetsY = true;
 
-	/// <summary>
-	/// If true, tracking data from a child OVRCameraRig will update the direction of movement.
-	/// </summary>
-	public bool HmdRotatesY = true;
+    /// <summary>
+    /// If true, tracking data from a child OVRCameraRig will update the direction of movement.
+    /// </summary>
+    public bool HmdRotatesY = true;
 
-	/// <summary>
-	/// Modifies the strength of gravity.
-	/// </summary>
-	public float GravityModifier = 0.379f;
-	
-	/// <summary>
-	/// If true, each OVRPlayerController will use the player's physical height.
-	/// </summary>
-	public bool useProfileData = true;
+    /// <summary>
+    /// Modifies the strength of gravity.
+    /// </summary>
+    public float GravityModifier = 0.379f;
 
-	protected CharacterController Controller = null;
-	protected OVRCameraRig CameraRig = null;
+    /// <summary>
+    /// If true, each OVRPlayerController will use the player's physical height.
+    /// </summary>
+    public bool useProfileData = true;
 
-	private float MoveScale = 1.0f;
-	private Vector3 MoveThrottle = Vector3.zero;
-	private float FallSpeed = 0.0f;
-	private OVRPose? InitialPose;
-	private float InitialYRotation = 0.0f;
-	private float MoveScaleMultiplier = 1.0f;
-	private float RotationScaleMultiplier = 1.0f;
-	private bool  SkipMouseRotation = false;
-	private bool  HaltUpdateMovement = false;
-	private bool prevHatLeft = false;
-	private bool prevHatRight = false;
-	private float SimulationRate = 60f;
+    protected CharacterController Controller = null;
+    protected OVRCameraRig CameraRig = null;
 
-    public List<Vector3>   OculusMovements = new List<Vector3>();
+    private float MoveScale = 1.0f;
+    private Vector3 MoveThrottle = Vector3.zero;
+    private float FallSpeed = 0.0f;
+    private OVRPose? InitialPose;
+    private float InitialYRotation = 0.0f;
+    private float MoveScaleMultiplier = 1.0f;
+    private float RotationScaleMultiplier = 1.0f;
+    private bool SkipMouseRotation = false;
+    private bool HaltUpdateMovement = false;
+    private bool prevHatLeft = false;
+    private bool prevHatRight = false;
+    private float SimulationRate = 60f;
+
+    public List<Vector3> OculusMovements = new List<Vector3>();
+    public List<float> OculusTime = new List<float>();
     public Vector3 OculusPrevRot = Vector3.zero;
 
     void Start()
-	{
-		// Add eye-depth as a camera offset from the player controller
-		var p = CameraRig.transform.localPosition;
-		p.z = OVRManager.profile.eyeDepth;
-		CameraRig.transform.localPosition = p;
-	}
+    {
+        // Add eye-depth as a camera offset from the player controller
+        var p = CameraRig.transform.localPosition;
+        p.z = OVRManager.profile.eyeDepth;
+        CameraRig.transform.localPosition = p;
+    }
 
-	void Awake()
-	{
-		Controller = gameObject.GetComponent<CharacterController>();
+    void Awake()
+    {
+        Controller = gameObject.GetComponent<CharacterController>();
 
-		if(Controller == null)
-			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
+        if (Controller == null)
+            Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
 
-		// We use OVRCameraRig to set rotations to cameras,
-		// and to be influenced by rotation
-		OVRCameraRig[] CameraRigs = gameObject.GetComponentsInChildren<OVRCameraRig>();
+        // We use OVRCameraRig to set rotations to cameras,
+        // and to be influenced by rotation
+        OVRCameraRig[] CameraRigs = gameObject.GetComponentsInChildren<OVRCameraRig>();
 
-		if(CameraRigs.Length == 0)
-			Debug.LogWarning("OVRPlayerController: No OVRCameraRig attached.");
-		else if (CameraRigs.Length > 1)
-			Debug.LogWarning("OVRPlayerController: More then 1 OVRCameraRig attached.");
-		else
-			CameraRig = CameraRigs[0];
+        if (CameraRigs.Length == 0)
+            Debug.LogWarning("OVRPlayerController: No OVRCameraRig attached.");
+        else if (CameraRigs.Length > 1)
+            Debug.LogWarning("OVRPlayerController: More then 1 OVRCameraRig attached.");
+        else
+            CameraRig = CameraRigs[0];
 
-		InitialYRotation = transform.rotation.eulerAngles.y;
-	}
+        InitialYRotation = transform.rotation.eulerAngles.y;
+    }
 
-	void OnEnable()
-	{
-		OVRManager.display.RecenteredPose += ResetOrientation;
+    void OnEnable()
+    {
+        OVRManager.display.RecenteredPose += ResetOrientation;
 
-		if (CameraRig != null)
-		{
-			CameraRig.UpdatedAnchors += UpdateTransform;
-		}
-	}
+        if (CameraRig != null)
+        {
+            CameraRig.UpdatedAnchors += UpdateTransform;
+        }
+    }
 
-	void OnDisable()
-	{
-		OVRManager.display.RecenteredPose -= ResetOrientation;
+    void OnDisable()
+    {
+        OVRManager.display.RecenteredPose -= ResetOrientation;
 
-		if (CameraRig != null)
-		{
-			CameraRig.UpdatedAnchors -= UpdateTransform;
-		}
-	}
+        if (CameraRig != null)
+        {
+            CameraRig.UpdatedAnchors -= UpdateTransform;
+        }
+    }
 
     public Vector3 GetOculusRotation()
     {
@@ -167,7 +168,7 @@ public class OVRPlayerController : MonoBehaviour
         direction = (tmp[0].y < 0);
         foreach (Vector3 move in tmp)
         {
-                angle += move.y;
+            angle += move.y;
 
 
             if (Mathf.Abs(angle) > 60 && cnt < 20)
@@ -180,6 +181,7 @@ public class OVRPlayerController : MonoBehaviour
                 if (nbPatern == 2)
                 {
                     OculusMovements.Clear();
+                    OculusTime.Clear();
                     return true;
                 }
             }
@@ -191,17 +193,104 @@ public class OVRPlayerController : MonoBehaviour
         return false;
     }
 
-	protected virtual void Update()
+    private float getAxis(int axisSelect, Vector3 move)
     {
-        OculusMovements.Add(GetOculusRotation() - OculusPrevRot);
+        if (axisSelect == 0)
+            return move.x;
+        else if (axisSelect == 1)
+            return move.y;
+        else if (axisSelect == 2)
+            return move.z;
+        return .0f;
+    }
+
+    public bool ShakingHeadChecker(int axis, float minAngle, float maxAngle, float minTime, float maxTime, float stopTime, int repeat)
+    {
+        int nbPatern = 0;
+        bool direction = (axis < 3);
+
+        float angle = .0f;
+        float time = .0f;
+
+        axis = axis % 3;
+        for (int cnt = OculusMovements.Count - 1; cnt >= 0; cnt--)
+        {
+            float tmp = getAxis(axis, OculusMovements[cnt]);
+
+            if ((((direction && tmp < -5) || (!direction && tmp > 5)) && nbPatern != repeat) || nbPatern > repeat)
+            {
+                //Debug.Log("Wrong Way / " + tmp + " / " + direction);
+                return false;
+            }
+
+            angle += getAxis(axis, OculusMovements[cnt]);
+            time += OculusTime[cnt];
+
+
+            if (minAngle <= Mathf.Abs(angle) && Mathf.Abs(angle) <= maxAngle &&
+                minTime <= time && time <= maxTime &&
+                ((direction && tmp < 0) || (!direction && tmp > 0)))
+            {
+                nbPatern += 1;
+                //Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
+
+                angle = .0f;
+                time = .0f;
+
+                direction = !direction;
+            }
+            else if (nbPatern == repeat)
+            {
+                //Debug.Log("Ok Mais pas");
+                if (angle > 10)
+                {
+                    //Debug.Log("Caca3");
+                    return false;
+                }
+                if (time > stopTime)
+                {
+                    OculusMovements.Clear();
+                    OculusTime.Clear();
+                    return true;
+                }
+            }
+            else if (Mathf.Abs(angle) > maxAngle || time > maxTime)
+            {
+                //Debug.Log("Caca4 / " + Mathf.Abs(angle) + " / " + maxAngle + " | " + time + " / " + maxTime);
+                return false;
+            }
+        }
+        return false;
+    }
+
+    private float RepairAxis(float axis)
+    {
+        if (axis > 340)
+            return (axis - 360.0f) * -1.0f;
+        if (axis < -340)
+            return (axis + 360.0f) * -1.0f;
+        return axis;
+    }
+
+    protected virtual void Update()
+    {
+        Vector3 TmpMovement = GetOculusRotation() - OculusPrevRot;
+
+        TmpMovement.x = RepairAxis(TmpMovement.x);
+        TmpMovement.y = RepairAxis(TmpMovement.y);
+        TmpMovement.z = RepairAxis(TmpMovement.z);
+
+        OculusMovements.Add(TmpMovement);
+        OculusTime.Add(Time.deltaTime);
         OculusPrevRot = GetOculusRotation();
         if (OculusMovements.Count > 300)
+        {
             OculusMovements.RemoveAt(0);
+            OculusTime.RemoveAt(0);
+        }
 
-        //if (CheckChekingHead())
-        //    Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-        //else
-        //    Debug.Log("Caca");
+        if (ShakingHeadChecker(1, 60.0f, 300.0f, 0.0f, 1.0f, 1.0f, 2))
+            Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 
         if (useProfileData)
 		{
