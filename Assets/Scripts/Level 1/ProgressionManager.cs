@@ -17,7 +17,8 @@ public class ProgressionManager : MonoBehaviour
     public GameObject[] Triggers;
 
     public Material CellShading;
-    public GameObject ToTheNextLevelPlatform;
+
+    public GameObject Sas;
 
     public void OnFirstLockActivation()
     {
@@ -48,8 +49,8 @@ public class ProgressionManager : MonoBehaviour
         foreach (GameObject go in Triggers)
             go.SetActive(false);
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering -= resetTriggersAfterFall;
-        ToTheNextLevelPlatform.SetActive(true);
         Player.position = Spawn.position;
+        Sas.SendMessage("ChangeSasState", 1);
     }
 
     public void unlockDoor()
@@ -57,28 +58,19 @@ public class ProgressionManager : MonoBehaviour
         switch (--_locks)
         {
             case 2:
-                GameObject.Find("Lock1").SendMessage("open");
                 OnFirstLockActivation();
                 break;
             case 1:
-                GameObject.Find("Lock2").SendMessage("open");
                 OnSecondLockActivation();
                 break;
             case 0:
-                GameObject.Find("Lock3").SendMessage("open");
                 OnFinalActivation();
-                Invoke("openDoor", 1.167f); // magic number... more seriously, the length of the anim.
                 break;
             default:
                 Debug.LogError("Should not happen");
                 break;
 
         }
-    }
-
-    void openDoor()
-    {
-        GameObject.Find("Door").SendMessage("open");
     }
 
     void resetTriggersAfterFall()

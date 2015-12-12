@@ -16,8 +16,6 @@ public class OnVisionChangedPopDepop : OnVisionChangedBaseBehaviour
         }
     }
 
-    public float timeAnim = 0.5f;
-
     protected Collider[] _cols;
     protected Renderer[] _rds;
 

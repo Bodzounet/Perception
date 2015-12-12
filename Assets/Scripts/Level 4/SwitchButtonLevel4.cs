@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwitchButton : MonoBehaviour 
+public class SwitchButtonLevel4 : MonoBehaviour 
 {
     bool _triggered = false;
     Animator _anim;
