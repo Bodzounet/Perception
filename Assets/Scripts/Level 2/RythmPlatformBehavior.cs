@@ -10,15 +10,37 @@ public class RythmPlatformBehavior : MonoBehaviour
     OVRPlayerController oculus;
     bool playerInActivationZone;
     bool notActivatedYet;
+    int shakingAxis;
+    int minAngle;
+    int maxAngle;
 
-	void Start ()
+    void Start ()
     {
         vision = GameObject.Find("Player").GetComponent<VisionManager>();
         oculus = GameObject.FindObjectOfType<OVRPlayerController>();
         animator = GetComponentInParent<Animator>();
         playerInActivationZone = false;
         notActivatedYet = true;
-	}
+        if (platformColor == VisionType.e_VisionType.RED)
+        {
+            shakingAxis = 0;
+            minAngle = -30;
+            maxAngle = 15;
+        }
+        else if (platformColor == VisionType.e_VisionType.GREEN)
+        {
+            shakingAxis = 1;
+            minAngle = -30;
+            maxAngle = 15;
+        }
+        else if (platformColor == VisionType.e_VisionType.BLUE)
+        {
+            shakingAxis = 1;
+            minAngle = -15;
+            maxAngle = 30;
+        }
+        print(shakingAxis + " " + minAngle + " " + maxAngle);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -40,7 +62,7 @@ public class RythmPlatformBehavior : MonoBehaviour
 	void Update ()
     {
 	    //This condition should be changed for the pattern detection
-        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(0, 60.0f, 300.0f, 0.0f, 100.0f, 0.0f, 2))
+        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(shakingAxis, minAngle, maxAngle, 0.3f, 0.5f, 0.0f, 2))
         {
             Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             animator.Play("Movement");
