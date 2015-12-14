@@ -68,7 +68,6 @@ public class MagicCubeBehavior : MonoBehaviour
         {
             int angleWithPlayer = (int)(tr.eulerAngles.y - playerTr.eulerAngles.y) % 360;
             VisionType.e_VisionType visionType = vision.CurrentVisionType.CurrentVision;
-            int distanceMultiplier = (int)visionType;
 
             if (angleWithPlayer < 0)
             {

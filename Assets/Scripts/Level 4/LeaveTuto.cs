@@ -22,6 +22,11 @@ public class LeaveTuto : MonoBehaviour
         foreach (MonoBehaviour m in MonoToDisable)
             m.enabled = false;
 
+        var st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+
+        st.printText("Oh. We've been sent away.");
+        st.printText("If y may give you a hint, I would suggest that you should avoid those vortexes.");
+
         col.transform.position = Spawn.position;
     }
 }
