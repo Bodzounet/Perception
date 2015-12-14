@@ -6,7 +6,6 @@ public class ChangeLevelMechanics : MonoBehaviour
     public CheckVisible changeMeca;
     public OnVisionChangedPopDepop[] depreatedScripts;
     public SpawnWithLigthSwith[] newScripts;
-    public MonoBehaviour msgWhenLightSwitchesFirstTime;
     public GameObject Ghost;
 
     void OnTriggerEnter(Collider col)
@@ -21,8 +20,6 @@ public class ChangeLevelMechanics : MonoBehaviour
             v.enabled = true;
         }
 
-        msgWhenLightSwitchesFirstTime.enabled = true;
-
         Ghost.SetActive(true);
 
         foreach (var v in Resources.FindObjectsOfTypeAll<SwitchEnvironmentColor>())
@@ -35,7 +32,7 @@ public class ChangeLevelMechanics : MonoBehaviour
         changeMeca.enabled = true;
 
         var st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
-        st.printText("WoW ! What dit just happen ?");
+        st.printText("WoW ! What happened ?");
         st.printText("All colors are messed up :s");
         st.printText("I'm trying to repair it.");
         st.printText("Try to find a solution by yourself, it may take time before I fix the problem...");
