@@ -751,7 +751,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 289459052}
   - 65: {fileID: 289459051}
-  - 114: {fileID: 289459050}
   m_Layer: 0
   m_Name: First
   m_TagString: Untagged
@@ -759,21 +758,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &289459050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 289459049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1c3b659d5ddc1a43b16bda3027e6e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages:
-  - Those black cubes are ... weird ...
-  - They react to your filters and can push you in some direction.
-  - But we don't exactly know how they work so ... good luck ! :D
 --- !u!65 &289459051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7006,7 +6990,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1882076861}
   - 65: {fileID: 1882076863}
-  - 114: {fileID: 1882076862}
   m_Layer: 0
   m_Name: Second
   m_TagString: Untagged
@@ -7026,20 +7009,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 635535659}
   m_RootOrder: 1
---- !u!114 &1882076862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1882076860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1c3b659d5ddc1a43b16bda3027e6e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages:
-  - Wow you made it, well played !
-  - Good luck for the next ones :)
 --- !u!65 &1882076863
 BoxCollider:
   m_ObjectHideFlags: 0
