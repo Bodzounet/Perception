@@ -31,6 +31,12 @@ public class ChangeLevelMechanics : MonoBehaviour
 
         changeMeca.enabled = true;
 
+        var st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+        st.printText("WoW ! What happened ?");
+        st.printText("All colors are messed up :s");
+        st.printText("I'm trying to repair it.");
+        st.printText("Try to find a solution by yourself, it may take time before I fix the problem...");
+
         Destroy(this.gameObject);
     }
 }

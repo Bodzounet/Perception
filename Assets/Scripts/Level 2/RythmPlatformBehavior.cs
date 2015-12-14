@@ -22,7 +22,7 @@ public class RythmPlatformBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Connard");
+        //Debug.Log("Connard");
         if (other.name == "Player")
         {
             playerInActivationZone = true;
@@ -48,7 +48,7 @@ public class RythmPlatformBehavior : MonoBehaviour
         }
         else
         {
-            Debug.Log("Cond = " + (vision.CurrentVisionType.CurrentVision == platformColor) + " / " + (playerInActivationZone) + " / " + (notActivatedYet   ) + " / lol");
+            //Debug.Log("Cond = " + (vision.CurrentVisionType.CurrentVision == platformColor) + " / " + (playerInActivationZone) + " / " + (notActivatedYet   ) + " / lol");
         }
     }
 }

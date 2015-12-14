@@ -85,20 +85,10 @@ public class ProgressionManager : MonoBehaviour
         }
     }
 
-    bool _onlyOnce = false;
-
     void resetTriggersAfterFall()
     {
         foreach (GameObject go in Triggers)
             go.SetActive(true);
         mazeUp.GetComponent<OnVisionChangedPopDepop>().SpawningVision = VisionType.e_VisionType.DEFAULT;
-
-        if (!_onlyOnce)
-        {
-            _onlyOnce = true;
-            st.printText("WoW. What did just happend ?");
-            st.printText("I thought we were dead, but nop.");
-            st.printText("Good ! keep testing :)");
-        }
     }
 }

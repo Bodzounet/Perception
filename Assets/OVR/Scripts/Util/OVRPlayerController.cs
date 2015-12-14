@@ -233,7 +233,7 @@ public class OVRPlayerController : MonoBehaviour
                 ((direction && tmp < 0) || (!direction && tmp > 0)))
             {
                 nbPatern += 1;
-                Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
+                //Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
 
                 angle = .0f;
                 time = .0f;
@@ -242,10 +242,10 @@ public class OVRPlayerController : MonoBehaviour
             }
             else if (nbPatern == repeat)
             {
-                Debug.Log("Ok Mais pas");
+                //Debug.Log("Ok Mais pas");
                 if (angle > 30 && stopTime != 0.0f)
                 {
-                    Debug.Log("Caca3 / " + angle);
+                    //Debug.Log("Caca3 / " + angle);
                     return false;
                 }
                 if (time > stopTime)
