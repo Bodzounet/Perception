@@ -34,9 +34,10 @@ public class ProgressionManager : MonoBehaviour
         Destroy(maze.GetComponent<SwitchEnvironmentColor>());
         mazeUp.SetActive(true);
         Player.position = Spawn.position;
-        st.printText("Nice ! you've opened one lock");
+        st.printText("Nice ! You've opened one lock");
         st.printText("But the maze vanished :/");
         st.printText("You should be able make it respawn, right ?");
+        st.printText("I'm pretty sure it's a matter of sight...");
     }
 
     public void OnSecondLockActivation()
@@ -45,7 +46,7 @@ public class ProgressionManager : MonoBehaviour
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering += resetTriggersAfterFall;
         resetTriggersAfterFall();
         Player.position = Spawn.position;
-        st.printText("Yeah ! another one");
+        st.printText("Yeah ! Another one");
         st.printText("keep going");
     }
 
