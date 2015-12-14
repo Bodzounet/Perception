@@ -11,7 +11,7 @@ public class ResetLightWithHead : MonoBehaviour
 
     void Update()
     {
-        if (ctrl.ShakingHeadChecker(1, 60, 300, 0, 10, 0, 1))
+        if (ctrl.ShakingHeadChecker(1, 45, 300, 0, 5, 0, 2))
         {
             foreach (var tmp in GameObject.FindObjectsOfType<CheckVisible>())
                 tmp.SendMessage("reset");

@@ -18,7 +18,7 @@ public class ChangeOcclusionZoneSize : MonoBehaviour
 
     void FixedUpdate() // and not Update
     {
-        if (ctrl.ShakingHeadChecker(1, 50, 300, 0, 10, 0, 1))
+        if (ctrl.ShakingHeadChecker(1, 45, 300, 0, 5, 0, 2))
         {
             StopAllCoroutines();
             StartCoroutine(resize());

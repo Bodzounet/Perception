@@ -3592,12 +3592,12 @@ MonoBehaviour:
   Acceleration: .100000001
   Damping: .300000012
   BackAndSideDampen: .5
-  JumpForce: .300000012
+  JumpForce: .25
   RotationAmount: 1.5
   RotationRatchet: 45
   HmdResetsY: 1
   HmdRotatesY: 0
-  GravityModifier: 1
+  GravityModifier: .150000006
   useProfileData: 1
   OculusMovements: []
   OculusTime: []
