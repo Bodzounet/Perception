@@ -13,7 +13,7 @@ public class RythmPlatformBehavior : MonoBehaviour
 	void Start ()
     {
         vision = GameObject.Find("Player").GetComponent<VisionManager>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
         playerInActivationZone = false;
         notActivatedYet = true;
 	}

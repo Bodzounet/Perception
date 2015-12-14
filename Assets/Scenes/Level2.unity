@@ -343,11 +343,27 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform1
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Radius
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11408776, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: platformColor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464554, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
       propertyPath: platformColor
       value: 2
       objectReference: {fileID: 0}
@@ -632,7 +648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429186, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11415442, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
       propertyPath: initialState
@@ -834,13 +850,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
-      propertyPath: m_Center.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
-      propertyPath: m_Center.x
-      value: -.5
+    - target: {fileID: 6505360, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -1505,11 +1517,19 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform2
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Center.z
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
       propertyPath: m_Center.z
       value: -.5
       objectReference: {fileID: 0}
@@ -1738,27 +1758,6 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 493756, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
   m_PrefabInternal: {fileID: 1963648838}
---- !u!1 &1213506241 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 130630, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
-  m_PrefabInternal: {fileID: 705938819}
---- !u!95 &1213506246
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213506241}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0741ca81341683f439e1edff9e3a469b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1216082280
 Prefab:
   m_ObjectHideFlags: 0
@@ -2038,9 +2037,17 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform4
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.x
       value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -3121,17 +3128,29 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform3
       objectReference: {fileID: 0}
-    - target: {fileID: 11408776, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: platformColor
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.z
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.x
       value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464554, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: platformColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -3179,13 +3198,25 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform5
       objectReference: {fileID: 0}
-    - target: {fileID: 11408776, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: platformColor
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.x
       value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464554, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: platformColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -3233,9 +3264,21 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform2
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Center.z
       value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -3244,6 +3287,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 493756, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
   m_PrefabInternal: {fileID: 705938819}
+--- !u!1 &1956412633 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 144226, guid: 51916a70c72bf2642975a9389d2b08f9, type: 2}
+  m_PrefabInternal: {fileID: 2005657156}
+--- !u!114 &1956412641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1956412633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd23770b57c7015459a35a79d6b938a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &1956412642
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1956412633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .519999981
+  m_Height: 2.0999999
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1958578055 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493756, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
@@ -3291,11 +3362,27 @@ Prefab:
       propertyPath: m_Name
       value: RythmPlatform1
       objectReference: {fileID: 0}
-    - target: {fileID: 13536420, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Radius
       value: 1.39999998
       objectReference: {fileID: 0}
-    - target: {fileID: 11408776, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: platformColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13517378, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
+      propertyPath: m_Radius
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464554, guid: fe980f6cb19bd824aa6f6b3f73a33dbb, type: 2}
       propertyPath: platformColor
       value: 1
       objectReference: {fileID: 0}
@@ -3340,6 +3427,10 @@ Prefab:
     - target: {fileID: 413780, guid: 51916a70c72bf2642975a9389d2b08f9, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144226, guid: 51916a70c72bf2642975a9389d2b08f9, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51916a70c72bf2642975a9389d2b08f9, type: 2}
