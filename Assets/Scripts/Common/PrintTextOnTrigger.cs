@@ -14,6 +14,7 @@ public class PrintTextOnTrigger : MonoBehaviour
             {
                 SpawnText.printText(message);
             }
+            Destroy(this);
         }
     }
 }
