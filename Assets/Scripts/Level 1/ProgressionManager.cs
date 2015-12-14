@@ -20,6 +20,13 @@ public class ProgressionManager : MonoBehaviour
 
     public GameObject Sas;
 
+    SpawnText st;
+
+    void Awake()
+    {
+        st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+    }
+
     public void OnFirstLockActivation()
     {
         blockInTheMiddle.SetActive(false);
@@ -27,9 +34,10 @@ public class ProgressionManager : MonoBehaviour
         Destroy(maze.GetComponent<SwitchEnvironmentColor>());
         mazeUp.SetActive(true);
         Player.position = Spawn.position;
-
-        SpawnText.printText("Gratz ! You've just made all disappear. Keep going");
-        SpawnText.printText("Maybe you should try another point of view...");
+        st.printText("Nice ! You've opened one lock");
+        st.printText("But the maze vanished :/");
+        st.printText("You should be able make it respawn, right ?");
+        st.printText("I'm pretty sure it's a matter of sight...");
     }
 
     public void OnSecondLockActivation()
@@ -38,6 +46,8 @@ public class ProgressionManager : MonoBehaviour
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering += resetTriggersAfterFall;
         resetTriggersAfterFall();
         Player.position = Spawn.position;
+        st.printText("Yeah ! Another one");
+        st.printText("keep going");
     }
 
     public void OnFinalActivation()
@@ -51,6 +61,8 @@ public class ProgressionManager : MonoBehaviour
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering -= resetTriggersAfterFall;
         Player.position = Spawn.position;
         Sas.SendMessage("changeSasState", 1);
+        st.printText("Well done, subject #357");
+        st.printText("It was funny, wasn't it ? Let's do another one !");
     }
 
     public void unlockDoor()
@@ -73,10 +85,20 @@ public class ProgressionManager : MonoBehaviour
         }
     }
 
+    bool _onlyOnce = false;
+
     void resetTriggersAfterFall()
     {
         foreach (GameObject go in Triggers)
             go.SetActive(true);
         mazeUp.GetComponent<OnVisionChangedPopDepop>().SpawningVision = VisionType.e_VisionType.DEFAULT;
+
+        if (!_onlyOnce)
+        {
+            _onlyOnce = true;
+            st.printText("WoW. What did just happend ?");
+            st.printText("I thought we were dead, but nop.");
+            st.printText("Good ! keep testing :)");
+        }
     }
 }

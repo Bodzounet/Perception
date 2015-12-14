@@ -21,7 +21,7 @@ public class SpawnText : MonoBehaviour
         StartCoroutine("printTextAux");
     }
 
-    public static void printText(string msg)
+    public void printText(string msg)
     {
         pendingMsgs.Add(msg);
     }

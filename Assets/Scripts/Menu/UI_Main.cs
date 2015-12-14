@@ -11,6 +11,11 @@ public class UI_Main : MonoBehaviour
         Application.LoadLevel("Intro");
     }
 
+    public void LoadSpecificLevel(string name)
+    {
+        Application.LoadLevel(name);
+    }
+
     public void OpenClosePanelChooseLevel(bool state)
     {
         PanelChooseLevel.SetActive(state);

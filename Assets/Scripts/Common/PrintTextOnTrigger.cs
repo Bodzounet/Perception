@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
-public class PrintTextOnTrigger : MonoBehaviour
+public class PrintTextOnTrigger : MonoBehaviour 
 {
-    public List<string> messages;
+    SpawnText _st;
 
-    void OnTriggerEnter(Collider other)
+    public string[] messages;
+
+    void Awake()
     {
-        if (other.transform.tag == "Player")
+        _st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Player")
         {
-            foreach (string message in messages)
-            {
-                SpawnText.printText(message);
-            }
-            Destroy(this);
+            foreach (string s in messages)
+                _st.printText(s);
+            Destroy(this.gameObject);
         }
     }
 }
