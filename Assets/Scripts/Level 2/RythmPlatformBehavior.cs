@@ -11,8 +11,6 @@ public class RythmPlatformBehavior : MonoBehaviour
     bool playerInActivationZone;
     bool notActivatedYet;
     int shakingAxis;
-    int minAngle;
-    int maxAngle;
 
     void Start ()
     {
@@ -23,23 +21,16 @@ public class RythmPlatformBehavior : MonoBehaviour
         notActivatedYet = true;
         if (platformColor == VisionType.e_VisionType.RED)
         {
-            shakingAxis = 0;
-            minAngle = -30;
-            maxAngle = 15;
+            shakingAxis = 1;
         }
         else if (platformColor == VisionType.e_VisionType.GREEN)
         {
-            shakingAxis = 1;
-            minAngle = -30;
-            maxAngle = 15;
+            shakingAxis = 0;
         }
         else if (platformColor == VisionType.e_VisionType.BLUE)
         {
             shakingAxis = 1;
-            minAngle = -15;
-            maxAngle = 30;
         }
-        print(shakingAxis + " " + minAngle + " " + maxAngle);
     }
 
     void OnTriggerEnter(Collider other)
@@ -62,9 +53,9 @@ public class RythmPlatformBehavior : MonoBehaviour
 	void Update ()
     {
 	    //This condition should be changed for the pattern detection
-        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(shakingAxis, minAngle, maxAngle, 0.3f, 0.5f, 0.0f, 2))
+        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(shakingAxis, 15.0f, 60.0f, 0.3f, 0.5f, 0.0f, 2))
         {
-            Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            //Debug.Log(shakingAxis + " WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             animator.Play("Movement");
             notActivatedYet = false;
         }

@@ -233,7 +233,7 @@ public class OVRPlayerController : MonoBehaviour
                 ((direction && tmp < 0) || (!direction && tmp > 0)))
             {
                 nbPatern += 1;
-                //Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
+                //Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction + " lol " + time);
 
                 angle = .0f;
                 time = .0f;
