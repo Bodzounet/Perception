@@ -85,14 +85,14 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.oculus.UnitySample
+  bundleIdentifier: com.Company.ProductName
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
-  virtualRealitySupported: 1
-  productGUID: 4618376bc3645f2438c97c98b0345a13
+  virtualRealitySupported: 0
+  productGUID: f978af799d7e70941af0f4da0aac8381
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
@@ -254,8 +254,11 @@ PlayerSettings:
   ps4pnGameCustomData: 1
   playerPrefsSupport: 0
   ps4ReprojectionSupport: 0
+<<<<<<< HEAD
   ps4UseAudio3dBackend: 0
   ps4Audio3dVirtualSpeakerCount: 14
+=======
+>>>>>>> 7cbeb0e2cc1cc7ce76458a833de791e02b6ff6c5
   ps4attribUserManagement: 0
   ps4attribMoveSupport: 0
   ps4attrib3DSupport: 0
