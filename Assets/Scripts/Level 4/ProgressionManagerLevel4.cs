@@ -35,7 +35,7 @@ public class ProgressionManagerLevel4 : MonoBehaviour
 
     void OnFinalActivation()
     {
-        Sas.SendMessage("ChangeSasState", 1);
+        Sas.SendMessage("changeSasState", 1);
         _st.printText("Excellent ! If I had feelings, I would be so proud of you ! ");
     }
 

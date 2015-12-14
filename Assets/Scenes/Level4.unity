@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!4 &50246668
 Transform:
   m_ObjectHideFlags: 0
@@ -574,7 +576,6 @@ GameObject:
   - 23: {fileID: 152591454}
   - 114: {fileID: 152591458}
   - 114: {fileID: 152591459}
-  - 114: {fileID: 152591457}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -637,17 +638,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152591452}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &152591457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152591452}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fdccf1b5d9e094da000b4f451287bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &152591458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,7 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &1067090705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4900,7 +4890,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1067090706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,15 +5110,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.69999981
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.29999995
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5158,6 +5148,14 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
+      propertyPath: JumpForce
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_IsPrefabParent: 0
@@ -5178,6 +5176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: {fileID: 1096352722}
   lightColor: 1
+  onlyOnce: 1
 --- !u!114 &1122184555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5191,6 +5190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: {fileID: 1975543958}
   lightColor: 2
+  onlyOnce: 0
 --- !u!114 &1122184556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5204,6 +5204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: {fileID: 990222824}
   lightColor: 1
+  onlyOnce: 0
 --- !u!1001 &1131824657
 Prefab:
   m_ObjectHideFlags: 0
@@ -5364,10 +5365,10 @@ MonoBehaviour:
   GOToDisable:
   - {fileID: 386739934}
   MonoToEnable:
-  - {fileID: 1122184554}
   - {fileID: 1122184555}
-  MonoToDisable:
   - {fileID: 1122184556}
+  MonoToDisable:
+  - {fileID: 1122184554}
 --- !u!4 &1192027119 stripped
 Transform:
   m_PrefabParentObject: {fileID: 448954, guid: 98437025728f8a44dbefc0a2838288e2, type: 2}
@@ -5925,7 +5926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1329405825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6023,7 +6024,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -7885,14 +7885,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2696491811359f0458a88bdb673c0e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeMeca: {fileID: 1122184556}
+  changeMeca: {fileID: 1122184554}
   depreatedScripts:
   - {fileID: 1234145249}
   - {fileID: 152591458}
   newScripts:
   - {fileID: 1234145248}
   - {fileID: 152591459}
-  msgWhenLightSwitchesFirstTime: {fileID: 152591457}
   Ghost: {fileID: 1192027116}
 --- !u!114 &1679473131
 MonoBehaviour:
