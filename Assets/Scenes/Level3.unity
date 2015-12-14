@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightmapSnapshot: {fileID: 112000001, guid: fcffa80559413fd45b2ba9e3fcac9483,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -784,6 +785,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 113650, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035008, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035008, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035008, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035008, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bd2835c6d5f96c4abc46e97a2fd8c41, type: 2}
   m_IsPrefabParent: 0
@@ -963,6 +984,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 289459052}
   - 65: {fileID: 289459051}
+  - 114: {fileID: 289459050}
   m_Layer: 0
   m_Name: First
   m_TagString: Untagged
@@ -970,6 +992,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &289459050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289459049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab1da5d6d7203a4294afdb0ea1abf6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Those big black cubes are ... weird ...
+  - They can transport you in some direction, but we don't exactly know how ...
+  - We suppose it's linked to your vision color and your orientation.
+  - Anyway, don't worry about it too much, do your best !
 --- !u!65 &289459051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4058,7 +4096,7 @@ GameObject:
   - 114: {fileID: 1075075097}
   - 114: {fileID: 1075075096}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GUI_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4087,7 +4125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .713235259, g: .713235259, b: .713235259, a: .490999997}
+  m_Color: {r: 1, g: .784313738, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5109,8 +5147,8 @@ Camera:
   m_GameObject: {fileID: 1330217390}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -5499,8 +5537,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1404248071}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: .145781636, y: .849698365, z: -.402621806, w: .307662487}
+  m_LocalPosition: {x: -40.5429459, y: 36.9146156, z: 15.5613804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7739,6 +7777,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1882076861}
   - 65: {fileID: 1882076863}
+  - 114: {fileID: 1882076862}
   m_Layer: 0
   m_Name: Second
   m_TagString: Untagged
@@ -7758,6 +7797,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 635535659}
   m_RootOrder: 1
+--- !u!114 &1882076862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882076860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab1da5d6d7203a4294afdb0ea1abf6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Wow, you actually found a way to use them ! Good job !
 --- !u!65 &1882076863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8530,7 +8582,7 @@ GameObject:
   - 114: {fileID: 2142498509}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
