@@ -151,6 +151,7 @@ public class OVRPlayerController : MonoBehaviour
     {
         if (transform != null && OVRManager.instance.GetRotation() != null)
             return OVRManager.instance.GetRotation() - transform.eulerAngles;
+        Debug.Log("error");
         return Vector3.zero;
     }
 
@@ -232,7 +233,7 @@ public class OVRPlayerController : MonoBehaviour
                 ((direction && tmp < 0) || (!direction && tmp > 0)))
             {
                 nbPatern += 1;
-                //Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
+                Debug.Log("Patern Get " + nbPatern + " / " + angle + " / " + direction);
 
                 angle = .0f;
                 time = .0f;
@@ -241,10 +242,10 @@ public class OVRPlayerController : MonoBehaviour
             }
             else if (nbPatern == repeat)
             {
-                //Debug.Log("Ok Mais pas");
-                if (angle > 10)
+                Debug.Log("Ok Mais pas");
+                if (angle > 30 && stopTime != 0.0f)
                 {
-                    //Debug.Log("Caca3");
+                    Debug.Log("Caca3 / " + angle);
                     return false;
                 }
                 if (time > stopTime)
@@ -260,6 +261,7 @@ public class OVRPlayerController : MonoBehaviour
                 return false;
             }
         }
+        //Debug.Log("LoL ? " + OculusMovements.Count + " / " + Mathf.Abs(angle) + " / " + maxAngle + " | " + time + " / " + maxTime);
         return false;
     }
 
@@ -283,7 +285,7 @@ public class OVRPlayerController : MonoBehaviour
         OculusMovements.Add(TmpMovement);
         OculusTime.Add(Time.deltaTime);
         OculusPrevRot = GetOculusRotation();
-        if (OculusMovements.Count > 300)
+        if (OculusMovements.Count > 150)
         {
             OculusMovements.RemoveAt(0);
             OculusTime.RemoveAt(0);

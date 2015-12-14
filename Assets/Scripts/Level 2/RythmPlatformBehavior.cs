@@ -22,6 +22,7 @@ public class RythmPlatformBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Connard");
         if (other.name == "Player")
         {
             playerInActivationZone = true;
@@ -39,12 +40,15 @@ public class RythmPlatformBehavior : MonoBehaviour
 	void Update ()
     {
 	    //This condition should be changed for the pattern detection
-        if (oculus.ShakingHeadChecker(2, 30.0f, 60.0f, 60.0f / 120.0f, 60.0f / 130.0f, 0.0f, 2) && 
-            vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet)
+        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(0, 60.0f, 300.0f, 0.0f, 100.0f, 0.0f, 2))
         {
             Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             animator.Play("Movement");
             notActivatedYet = false;
         }
-	}
+        else
+        {
+            Debug.Log("Cond = " + (vision.CurrentVisionType.CurrentVision == platformColor) + " / " + (playerInActivationZone) + " / " + (notActivatedYet   ) + " / lol");
+        }
+    }
 }
