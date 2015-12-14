@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 1, g: .784313738, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -665,10 +665,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046577615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1066d6fd1200e7469e172f819edb113, type: 3}
+  m_Script: {fileID: 11500000, guid: ab0ea5d7a6998ff4fb39cc151896f978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sasManager: {fileID: 1700362538}
 --- !u!1 &1103692986
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,17 +964,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11491676, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
       propertyPath: levelToLoadName
-      value: Level1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415442, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
+      propertyPath: initialState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aecc93341c4cfd438f6103f67e48d9e, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1700362538 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11415442, guid: 3aecc93341c4cfd438f6103f67e48d9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1700362537}
-  m_Script: {fileID: 11500000, guid: b93cd419eb21f9244bb6e6f0491f8415, type: 3}
 --- !u!1 &1739613070
 GameObject:
   m_ObjectHideFlags: 0
