@@ -18,7 +18,7 @@ public class ChangeOcclusionZoneSize : MonoBehaviour
 
     void FixedUpdate() // and not Update
     {
-        if (ctrl.CheckShakingHead())
+        if (ctrl.ShakingHeadChecker(1, 50, 300, 0, 10, 0, 1))
         {
             StopAllCoroutines();
             StartCoroutine(resize());
@@ -34,7 +34,7 @@ public class ChangeOcclusionZoneSize : MonoBehaviour
         }
         while (transform.localScale != initial)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, initial, 0.005f);
+            transform.localScale = Vector3.Lerp(transform.localScale, initial, 0.001f);
             yield return new WaitForEndOfFrame();
         }
     }

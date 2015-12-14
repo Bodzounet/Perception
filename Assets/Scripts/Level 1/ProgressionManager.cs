@@ -13,6 +13,8 @@ public class ProgressionManager : MonoBehaviour
     public GameObject mazeUp;
     public Material invisible;
 
+    public GameObject unfair;
+
     public GameObject Occlusion;
     public GameObject[] Triggers;
 
@@ -36,7 +38,7 @@ public class ProgressionManager : MonoBehaviour
         Player.position = Spawn.position;
         st.printText("Nice ! You've opened one lock");
         st.printText("But the maze vanished :/");
-        st.printText("You should be able make it respawn, right ?");
+        st.printText("You should be able to make it respawn, right ?");
         st.printText("I'm pretty sure it's a matter of sight...");
     }
 
@@ -46,6 +48,7 @@ public class ProgressionManager : MonoBehaviour
         GameObject.FindObjectOfType<SecurityNet>().OnTriggering += resetTriggersAfterFall;
         resetTriggersAfterFall();
         Player.position = Spawn.position;
+        unfair.SetActive(true);
         st.printText("Yeah ! Another one");
         st.printText("keep going");
     }

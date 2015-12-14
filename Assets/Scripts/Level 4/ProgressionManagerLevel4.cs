@@ -21,7 +21,7 @@ public class ProgressionManagerLevel4 : MonoBehaviour
         foreach (GameObject go in ItemToActivateOnFirstSwitch)
             go.SetActive(true);
         _st.printText("Nice work.");
-        _st.printText("Look ! some new pillars has spawned.");
+        _st.printText("Look! some new pillars have spawned.");
     }
 
     void OnSecondLockActivation()
@@ -29,14 +29,14 @@ public class ProgressionManagerLevel4 : MonoBehaviour
         foreach (GameObject go in ItemToActivateOnSecondSwitch)
             go.SetActive(true);
         _st.printText("You're doing well");
-        _st.printText("Maybe those irradiations make you smarter ?");
+        _st.printText("Maybe those radiations make you smarter ?");
         _st.printText("Do you feel clever, subject #357 ?");
     }
 
     void OnFinalActivation()
     {
         Sas.SendMessage("changeSasState", 1);
-        _st.printText("Excellent ! If I had feelings, I would be so proud of you ! ");
+        _st.printText("Excellent! If I had feelings, I would be so proud of you! ");
     }
 
     public void unlockDoor()
