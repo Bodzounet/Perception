@@ -9,6 +9,8 @@ public class CheckVisible : MonoBehaviour
 	RaycastHit hit;
     LightManager lm;
 
+    public bool onlyOnce;
+
     void Awake()
     {
         lm = GameObject.FindObjectOfType<LightManager>();
@@ -30,6 +32,14 @@ public class CheckVisible : MonoBehaviour
             {
 				if (hit.transform == objPos) 
                 {
+                    if (onlyOnce)
+                    {
+                        onlyOnce = false;
+                        var st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+                        st.printText("That's it. This strange light makes objects spawn, if they share the same color.");
+                        st.printText("Good job.");
+                    }
+
                     return true;
 				}
 			}
@@ -42,12 +52,6 @@ public class CheckVisible : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine("CheckItem", Light);
         lm.CurrentLights = LightManager.e_Lights.NONE;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-            reset();
     }
 
     IEnumerator CheckItem(GameObject go)

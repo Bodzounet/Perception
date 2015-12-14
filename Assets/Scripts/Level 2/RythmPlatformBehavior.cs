@@ -7,19 +7,22 @@ public class RythmPlatformBehavior : MonoBehaviour
 
     Animator animator;
     VisionManager vision;
+    OVRPlayerController oculus;
     bool playerInActivationZone;
     bool notActivatedYet;
 
 	void Start ()
     {
         vision = GameObject.Find("Player").GetComponent<VisionManager>();
-        animator = GetComponent<Animator>();
+        oculus = GameObject.FindObjectOfType<OVRPlayerController>();
+        animator = GetComponentInParent<Animator>();
         playerInActivationZone = false;
         notActivatedYet = true;
 	}
 
     void OnTriggerEnter(Collider other)
     {
+        //Debug.Log("Connard");
         if (other.name == "Player")
         {
             playerInActivationZone = true;
@@ -37,10 +40,15 @@ public class RythmPlatformBehavior : MonoBehaviour
 	void Update ()
     {
 	    //This condition should be changed for the pattern detection
-        if (Input.GetButton("Action") && vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet)
+        if (vision.CurrentVisionType.CurrentVision == platformColor && playerInActivationZone && notActivatedYet && oculus.ShakingHeadChecker(0, 60.0f, 300.0f, 0.0f, 100.0f, 0.0f, 2))
         {
+            Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             animator.Play("Movement");
             notActivatedYet = false;
         }
-	}
+        else
+        {
+            //Debug.Log("Cond = " + (vision.CurrentVisionType.CurrentVision == platformColor) + " / " + (playerInActivationZone) + " / " + (notActivatedYet   ) + " / lol");
+        }
+    }
 }

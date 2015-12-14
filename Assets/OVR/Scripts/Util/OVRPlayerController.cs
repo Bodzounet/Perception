@@ -71,7 +71,7 @@ public class OVRPlayerController : MonoBehaviour
     /// <summary>
     /// Modifies the strength of gravity.
     /// </summary>
-    public float GravityModifier = 0.379f;
+    public float GravityModifier = 0.015f;//0.379f;
 
     /// <summary>
     /// If true, each OVRPlayerController will use the player's physical height.
@@ -151,6 +151,7 @@ public class OVRPlayerController : MonoBehaviour
     {
         if (transform != null && OVRManager.instance.GetRotation() != null)
             return OVRManager.instance.GetRotation() - transform.eulerAngles;
+        Debug.Log("error");
         return Vector3.zero;
     }
 
@@ -242,9 +243,9 @@ public class OVRPlayerController : MonoBehaviour
             else if (nbPatern == repeat)
             {
                 //Debug.Log("Ok Mais pas");
-                if (angle > 10)
+                if (angle > 30 && stopTime != 0.0f)
                 {
-                    //Debug.Log("Caca3");
+                    //Debug.Log("Caca3 / " + angle);
                     return false;
                 }
                 if (time > stopTime)
@@ -260,6 +261,7 @@ public class OVRPlayerController : MonoBehaviour
                 return false;
             }
         }
+        //Debug.Log("LoL ? " + OculusMovements.Count + " / " + Mathf.Abs(angle) + " / " + maxAngle + " | " + time + " / " + maxTime);
         return false;
     }
 
@@ -283,14 +285,14 @@ public class OVRPlayerController : MonoBehaviour
         OculusMovements.Add(TmpMovement);
         OculusTime.Add(Time.deltaTime);
         OculusPrevRot = GetOculusRotation();
-        if (OculusMovements.Count > 300)
+        if (OculusMovements.Count > 150)
         {
             OculusMovements.RemoveAt(0);
             OculusTime.RemoveAt(0);
         }
 
-        if (ShakingHeadChecker(1, 60.0f, 300.0f, 0.0f, 1.0f, 1.0f, 2))
-            Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+        //if (ShakingHeadChecker(1, 60.0f, 300.0f, 0.0f, 1.0f, 1.0f, 2))
+        //   Debug.Log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 
         if (useProfileData)
 		{
@@ -385,13 +387,16 @@ public class OVRPlayerController : MonoBehaviour
 
 		MoveScale = 1.0f;
 
+        if (Input.GetButton("Jump"))
+            Jump();
+
 		if ( (moveForward && moveLeft) || (moveForward && moveRight) ||
 			 (moveBack && moveLeft)    || (moveBack && moveRight) )
 			MoveScale = 0.70710678f;
 
 		// No positional movement if we are in the air
-		if (!Controller.isGrounded)
-			MoveScale = 0.0f;
+		//if (!Controller.isGrounded)
+		//	MoveScale = 0.0f;
 
 		MoveScale *= SimulationRate * Time.deltaTime;
 
