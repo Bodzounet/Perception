@@ -9,21 +9,34 @@ public class ProgressionManagerLevel4 : MonoBehaviour
     public GameObject[] ItemToActivateOnSecondSwitch;
     public GameObject Sas;
 
+    SpawnText _st;
+
+    void Awake()
+    {
+        _st = GameObject.Find("GUI_Text").GetComponent<SpawnText>();
+    }
+
     void OnFirstLockActivation()
     {
         foreach (GameObject go in ItemToActivateOnFirstSwitch)
             go.SetActive(true);
+        _st.printText("Nice work.");
+        _st.printText("Look ! some new pillars has spawned.");
     }
 
     void OnSecondLockActivation()
     {
         foreach (GameObject go in ItemToActivateOnSecondSwitch)
             go.SetActive(true);
+        _st.printText("You're doing well");
+        _st.printText("Maybe those irradiations make you smarter ?");
+        _st.printText("Do you feel clever, subject #357 ?");
     }
 
     void OnFinalActivation()
     {
         Sas.SendMessage("ChangeSasState", 1);
+        _st.printText("Excellent ! If I had feelings, I would be so proud of you ! ");
     }
 
     public void unlockDoor()
