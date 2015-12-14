@@ -15,7 +15,7 @@ public class RythmPlatformBehavior : MonoBehaviour
     {
         vision = GameObject.Find("Player").GetComponent<VisionManager>();
         oculus = GameObject.FindObjectOfType<OVRPlayerController>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
         playerInActivationZone = false;
         notActivatedYet = true;
 	}
